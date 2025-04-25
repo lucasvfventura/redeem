@@ -4,7 +4,6 @@ import { useGetRedemptionsQuery } from "@/generated/graphql";
 export default function RedemptionsPage() {
   const { data, loading, error } = useGetRedemptionsQuery();
 
-  console.log(data);
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-2xl font-bold mb-4">Redemptions</h1>

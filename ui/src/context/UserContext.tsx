@@ -13,6 +13,7 @@ interface UserContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
+  refresh: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -21,7 +22,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loginMutation] = useLoginMutation();
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-  const { data } = useMeQuery({ skip: !token });
+  const { data, refetch } = useMeQuery({ skip: !token });
 
   useEffect(() => {
     if (token) {
@@ -55,6 +56,9 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const refresh = () => {
+    refetch();
+  };
 
   const logout = () => {
     setUser(null);
@@ -64,7 +68,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, refresh, login, logout }}>
       {children}
     </UserContext.Provider>
   );

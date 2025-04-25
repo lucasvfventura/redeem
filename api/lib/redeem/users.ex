@@ -4,6 +4,7 @@ defmodule Redeem.Users do
 
   def get_users() do
     User
+    |> order_by(asc: :email)
     |> Repo.all()
   end
 
