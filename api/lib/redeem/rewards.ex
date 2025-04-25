@@ -8,6 +8,7 @@ defmodule Redeem.Rewards do
 
   def get_rewards() do
     Reward
+    |> order_by(asc: :name)
     |> Repo.all()
   end
 

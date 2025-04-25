@@ -5,7 +5,7 @@ import { useGetRewardsQuery, useRedeemMutation } from "@/generated/graphql";
 
 export default function Home() {
   const { user, refresh } = useUser();
-  const { data, loading, error } = useGetRewardsQuery();
+  const { data, loading, error, refetch } = useGetRewardsQuery();
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
   const [redeeming, setRedeeming] = useState<{ [key: string]: boolean }>({});
   const [success, setSuccess] = useState<{ [key: string]: boolean }>({});
@@ -19,6 +19,7 @@ export default function Home() {
     setRedeeming((r) => ({ ...r, [id]: true }));
     await redeem({ variables: { rewardId: id, quantity: quantities[id] || 1 } });
     refresh();
+    refetch();
     setRedeeming((r) => ({ ...r, [id]: false }));
     setSuccess((s) => ({ ...s, [id]: true }));
     setTimeout(() => setSuccess((s) => ({ ...s, [id]: false })), 2000);
