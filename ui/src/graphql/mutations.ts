@@ -6,7 +6,7 @@ export const REDEEM = gql`
       id
       quantity
       reward { id name }
-      createdAt
+      insertedAt
     }
   }
 `;

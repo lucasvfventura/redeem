@@ -29,7 +29,7 @@ export default function RedemptionsPage() {
               <tr key={r?.id}>
                 <td>{r?.reward?.name}</td>
                 <td>{r?.quantity}</td>
-                <td>{new Date(r?.createdAt).toLocaleDateString()}</td>
+                <td>{new Date(r?.insertedAt).toLocaleString()}</td>
               </tr>
             ))}
           </tbody>

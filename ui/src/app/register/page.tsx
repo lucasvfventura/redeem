@@ -32,7 +32,7 @@ export default function RegisterPage() {
       } else {
         setError("Registration failed. Please try again.");
       }
-    } catch (err) {
+    } catch {
       setError("Registration failed. Please try again.");
     }
     setLoading(false);

@@ -20,8 +20,8 @@ export type Scalars = {
 
 export type Redeemption = {
   __typename?: 'Redeemption';
-  createdAt: Maybe<Scalars['DateTime']['output']>;
   id: Scalars['ID']['output'];
+  insertedAt: Maybe<Scalars['DateTime']['output']>;
   quantity: Scalars['Int']['output'];
   reward: Reward;
   updatedAt: Maybe<Scalars['DateTime']['output']>;
@@ -29,9 +29,9 @@ export type Redeemption = {
 
 export type Reward = {
   __typename?: 'Reward';
-  createdAt: Maybe<Scalars['DateTime']['output']>;
   description: Scalars['String']['output'];
   id: Scalars['ID']['output'];
+  insertedAt: Maybe<Scalars['DateTime']['output']>;
   name: Scalars['String']['output'];
   quantity: Scalars['Int']['output'];
   updatedAt: Maybe<Scalars['DateTime']['output']>;
@@ -114,7 +114,7 @@ export type RedeemMutationVariables = Exact<{
 }>;
 
 
-export type RedeemMutation = { __typename?: 'RootMutationType', redeem: { __typename?: 'Redeemption', id: string, quantity: number, createdAt: any | null, reward: { __typename?: 'Reward', id: string, name: string } } | null };
+export type RedeemMutation = { __typename?: 'RootMutationType', redeem: { __typename?: 'Redeemption', id: string, quantity: number, insertedAt: any | null, reward: { __typename?: 'Reward', id: string, name: string } } | null };
 
 export type AddPointsMutationVariables = Exact<{
   userId: Scalars['ID']['input'];
@@ -149,7 +149,7 @@ export type GetRewardsQuery = { __typename?: 'RootQueryType', rewards: Array<{ _
 export type GetRedemptionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetRedemptionsQuery = { __typename?: 'RootQueryType', redemptions: Array<{ __typename?: 'Redeemption', id: string, quantity: number, createdAt: any | null, reward: { __typename?: 'Reward', id: string, name: string } } | null> | null };
+export type GetRedemptionsQuery = { __typename?: 'RootQueryType', redemptions: Array<{ __typename?: 'Redeemption', id: string, quantity: number, insertedAt: any | null, reward: { __typename?: 'Reward', id: string, name: string } } | null> | null };
 
 export type GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -171,7 +171,7 @@ export const RedeemDocument = gql`
       id
       name
     }
-    createdAt
+    insertedAt
   }
 }
     `;
@@ -374,7 +374,7 @@ export const GetRedemptionsDocument = gql`
       id
       name
     }
-    createdAt
+    insertedAt
   }
 }
     `;

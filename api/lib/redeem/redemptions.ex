@@ -10,6 +10,7 @@ defmodule Redeem.Redemptions do
   def get_redemptions_by_user_id(user_id) do
     Redemption
     |> where([r], r.user_id == ^user_id)
+    |> order_by([r], desc: r.inserted_at)
     |> Repo.all()
   end
 

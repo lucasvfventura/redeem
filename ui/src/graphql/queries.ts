@@ -21,7 +21,7 @@ export const GET_REDEMPTIONS = gql`
         id
         name
       }
-      createdAt
+      insertedAt
     }
   }
 `;

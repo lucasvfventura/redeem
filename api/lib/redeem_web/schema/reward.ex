@@ -2,13 +2,13 @@ defmodule RedeemWeb.Schema.Reward do
   use Absinthe.Schema.Notation
 
   object :reward do
-    field :id, non_null(:id)
-    field :name, non_null(:string)
-    field :description, non_null(:string)
-    field :value_per_unit, non_null(:integer)
-    field :quantity, non_null(:integer)
-    field :created_at, :datetime
-    field :updated_at, :datetime
+    field(:id, non_null(:id))
+    field(:name, non_null(:string))
+    field(:description, non_null(:string))
+    field(:value_per_unit, non_null(:integer))
+    field(:quantity, non_null(:integer))
+    field(:inserted_at, :datetime)
+    field(:updated_at, :datetime)
   end
 
   object :reward_queries do

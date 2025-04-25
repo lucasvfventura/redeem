@@ -5,7 +5,7 @@ defmodule RedeemWeb.Schema.Redeemption do
   object :redeemption do
     field(:id, non_null(:id))
     field(:quantity, non_null(:integer))
-    field(:created_at, :datetime)
+    field(:inserted_at, :datetime)
     field(:updated_at, :datetime)
 
     field(:reward, non_null(:reward), resolve: dataloader(:reward))
