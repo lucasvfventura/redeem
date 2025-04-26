@@ -95,13 +95,13 @@ App runs at: `http://localhost:3000`
 - `description`: string
 - `value_per_unit`: integer
 - `quantity`: integer
-- `created_at`, `updated_at`: datetime
+- `inserted_at`, `updated_at`: datetime
 
 ### Redemption
 - `id`: string
 - `quantity`: integer
 - `reward`: Reward
-- `created_at`, `updated_at`: datetime
+- `inserted_at`, `updated_at`: datetime
 
 ---
 
