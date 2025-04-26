@@ -56,6 +56,7 @@ The backend is built with Elixir and Phoenix, exposing a GraphQL API using Absin
 **Start backend:**
 ```bash
 cd api
+docker-compose up -d
 mix setup
 mix phx.server
 ```
