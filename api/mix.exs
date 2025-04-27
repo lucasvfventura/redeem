@@ -48,6 +48,7 @@ defmodule Redeem.MixProject do
       {:bandit, "~> 1.5"},
       {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},
+      {:cors_plug, "~> 3.0"},
       {:dataloader, "~> 2.0.0"},
       {:bcrypt_elixir, "~> 3.0"}
     ]
