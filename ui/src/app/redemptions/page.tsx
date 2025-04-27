@@ -2,7 +2,7 @@
 import { useGetRedemptionsQuery } from "@/generated/graphql";
 
 export default function RedemptionsPage() {
-  const { data, loading, error } = useGetRedemptionsQuery();
+  const { data, loading, error } = useGetRedemptionsQuery({ fetchPolicy: "network-only" });
 
   return (
     <div className="flex flex-col gap-6">

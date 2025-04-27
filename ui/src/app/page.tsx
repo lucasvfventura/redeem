@@ -7,7 +7,7 @@ import { useGetRewardsQuery, useRedeemMutation } from "@/generated/graphql";
 export default function Home() {
   const { user, refresh } = useUser();
   const router = useRouter();
-  const { data, loading, error, refetch } = useGetRewardsQuery();
+  const { data, loading, error, refetch } = useGetRewardsQuery({ fetchPolicy: "network-only" });
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
   const [redeeming, setRedeeming] = useState<{ [key: string]: boolean }>({});
   const [success, setSuccess] = useState<{ [key: string]: boolean }>({});
