@@ -44,8 +44,8 @@ defmodule RedeemWeb.Resolvers.User do
     end
   end
 
-  def add_points(_parent, %{user_id: user_id, points: points}, %{context: %{current_user: user}}) do
-    case Users.update_balance_points(%{user_id: user_id, points: user.balance_points + points}) do
+  def add_points(_parent, %{user_id: user_id, points: points}, _context) do
+    case Users.update_balance_points(%{user_id: user_id, points: points}) do
       {:ok, user} -> {:ok, user}
       :error -> {:error, "Failed to add points"}
     end

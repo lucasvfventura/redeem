@@ -38,7 +38,7 @@ defmodule Redeem.Users do
     user = get_user_by_id(user_id)
 
     user
-    |> User.update_balance_points_changeset(%{balance_points: points})
+    |> User.update_balance_points_changeset(%{balance_points: user.balance_points + points})
     |> Repo.update()
   end
 end
